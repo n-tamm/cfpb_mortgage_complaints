@@ -1,0 +1,21 @@
+feature,importance,feature_group
+num__received_days_since_start,0.214184,received
+num__received_day,0.097537,received
+num__received_dayofweek,0.056823,received
+num__received_month,0.055562,received
+num__narrative_char_count,0.048008,narrative
+num__narrative_word_count,0.045573,narrative
+num__received_year,0.028962,received
+cat__Product_Bank account or service,0.023408,Product
+cat__Sub-product_General-purpose credit card or charge card,0.021877,Sub-product
+num__received_quarter,0.016583,received
+cat__zip3___OTHER__,0.015617,zip3
+cat__Sub-product_Government benefit card,0.014463,Sub-product
+cat__Issue_Closing on a mortgage,0.011273,Issue
+cat__Product_Mortgage,0.011062,Product
+cat__Sub-product_Checking account,0.010163,Sub-product
+cat__State_CA,0.009588,State
+cat__Tags_missing,0.009533,Tags
+cat__Sub-issue_missing,0.009513,Sub-issue
+cat__Submitted via_Web,0.008453,Submitted via
+cat__Sub-product_Conventional home mortgage,0.00828,Sub-product

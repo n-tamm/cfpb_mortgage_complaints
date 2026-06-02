@@ -1,0 +1,5 @@
+model_family,cv_mean_accuracy,cv_std_accuracy,cv_mean_average_precision,cv_std_average_precision,cv_mean_roc_auc,cv_std_roc_auc,cv_mean_recall,cv_std_recall,cv_mean_precision,cv_std_precision,cv_mean_f1,cv_std_f1,holdout_accuracy,holdout_average_precision,holdout_roc_auc,holdout_recall,holdout_precision,holdout_f1
+Random Forest,0.9758,0.0018,0.0459,0.0122,0.6945,0.0388,0.1227,0.0274,0.0927,0.0239,0.1053,0.025,0.9741,0.0312,0.6738,0.1014,0.0697,0.0826
+KNN,0.9754,0.0016,0.0393,0.009,0.5853,0.0229,0.0953,0.0223,0.0715,0.0101,0.0814,0.0139,0.9746,0.0173,0.5721,0.058,0.0437,0.0498
+Logistic Regression,0.7,0.0054,0.0271,0.003,0.6422,0.021,0.5001,0.0315,0.0192,0.0008,0.037,0.0016,0.7011,0.0198,0.5965,0.4275,0.0165,0.0318
+Support Vector Machine,0.6964,0.0048,0.0258,0.0022,0.6381,0.0215,0.5019,0.0327,0.0191,0.0009,0.0367,0.0017,0.6999,0.0187,0.5932,0.4275,0.0165,0.0317
