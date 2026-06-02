@@ -1,0 +1,14 @@
+duckdb
+imbalanced-learn
+ipykernel
+ipython
+joblib
+jupyterlab
+matplotlib
+numpy
+pandas
+polars
+pyarrow
+requests
+scikit-learn
+seaborn
