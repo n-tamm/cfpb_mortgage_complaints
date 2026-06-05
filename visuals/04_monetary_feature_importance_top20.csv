@@ -1,0 +1,21 @@
+feature,importance,feature_group
+cat__Issue_Getting a credit card,0.076827,Issue
+cat__Issue_Incorrect information on your report,0.076157,Issue
+cat__Issue_Problem with a purchase shown on your statement,0.05829,Issue
+cat__Sub-issue_Was not notified of investigation status or results,0.055652,Sub-issue
+cat__Issue_Problem with a company's investigation into an existing problem,0.049632,Issue
+cat__Issue_Fees or interest,0.038795,Issue
+cat__Sub-issue_Account status incorrect,0.036234,Sub-issue
+cat__Sub-issue_Credit card company isn't resolving a dispute about a purchase on your statement,0.035967,Sub-issue
+cat__Sub-product_General-purpose credit card or charge card,0.030479,Sub-product
+cat__Sub-product_Checking account,0.030159,Sub-product
+num__received_days_since_start,0.029306,received
+cat__Product_Checking or savings account,0.027586,Product
+num__narrative_char_count,0.027336,narrative
+cat__Sub-issue_Problem with fees,0.027032,Sub-issue
+cat__Sub-issue_Card opened without my consent or knowledge,0.025367,Sub-issue
+cat__Product_Credit card,0.025077,Product
+num__narrative_word_count,0.024767,narrative
+num__received_year,0.02003,received
+cat__Sub-issue_Card opened as result of identity theft or fraud,0.018132,Sub-issue
+cat__Issue_Managing an account,0.011895,Issue
