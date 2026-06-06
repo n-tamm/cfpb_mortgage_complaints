@@ -1,0 +1,4 @@
+Complaint ID,Product,Sub-product,Issue,Sub-issue,Company,State,Submitted via,Consumer complaint narrative,target_monetary_relief,predicted_label,predicted_proba,error_type,narrative_present,narrative_word_count,failure_category
+3399761,Mortgage,Conventional home mortgage,Trouble during payment process,missing,"PENNYMAC LOAN SERVICES, LLC.",CA,Web,,1,0,0.49998753696515386,false_negative,False,0,likely systematic minority-class miss
+3104586,Checking or savings account,Checking account,Problem caused by your funds being low,Overdrafts and overdraft fees,REGIONS FINANCIAL CORPORATION,IL,Referral,,0,1,0.9560205037584583,false_positive,False,0,aggressive positive flag / ambiguous case
+2177962,Mortgage,Conventional adjustable mortgage (ARM),"Loan servicing, payments, escrow account",missing,JPMORGAN CHASE & CO.,CA,Phone,,1,0,0.4992777119817447,false_negative,False,0,sparse-information edge case
