@@ -1,8 +1,0 @@
-metric,cv_mean,cv_std,holdout
-accuracy,0.7816,0.0001,0.7815
-average_precision,0.3886,0.0065,0.3962
-balanced_accuracy,0.5009,0.0002,0.5002
-f1,0.0043,0.0009,0.0009
-precision,0.6694,0.0849,0.75
-recall,0.0021,0.0005,0.0005
-roc_auc,0.7088,0.0037,0.7086

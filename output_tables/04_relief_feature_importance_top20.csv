@@ -1,0 +1,21 @@
+feature,importance,feature_group
+cat__Product_Mortgage,0.166852,Product
+cat__Product_Credit card,0.079205,Product
+cat__Sub-product_General-purpose credit card or charge card,0.062575,Sub-product
+cat__Sub-issue_Was not notified of investigation status or results,0.053701,Sub-issue
+cat__Sub-product_Conventional home mortgage,0.048304,Sub-product
+cat__Issue_Trouble during payment process,0.037908,Issue
+cat__Sub-issue_missing,0.035089,Sub-issue
+num__received_days_since_start,0.029147,received
+cat__Issue_Struggling to pay mortgage,0.028578,Issue
+cat__Sub-issue_Account status incorrect,0.026696,Sub-issue
+cat__Issue_Problem with a purchase shown on your statement,0.025234,Issue
+cat__Product_Credit card or prepaid card,0.024049,Product
+cat__Issue_Problem with a company's investigation into an existing problem,0.023166,Issue
+cat__Sub-issue_Problem with fees,0.019617,Sub-issue
+num__received_year,0.017843,received
+cat__Sub-product_Store credit card,0.016876,Sub-product
+cat__Product_Checking or savings account,0.015976,Product
+cat__Sub-product_FHA mortgage,0.014521,Sub-product
+cat__Issue_Fees or interest,0.014089,Issue
+cat__Issue_Incorrect information on your report,0.012879,Issue

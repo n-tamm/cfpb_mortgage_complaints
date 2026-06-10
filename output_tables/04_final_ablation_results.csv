@@ -1,0 +1,7 @@
+ablation,cv_mean_f1,cv_mean_precision,cv_mean_recall,feature_count,f1_drop_vs_all_features
+no_narrative_size,0.4203,0.3178,0.6203,13,-0.0014
+no_sentiment,0.4192,0.3207,0.6052,14,-0.0003
+all_features,0.4189,0.3251,0.589,15,0.0
+no_product_context,0.4182,0.3253,0.5853,13,0.0007
+no_issue_context,0.3573,0.2954,0.4522,13,0.0616
+no_company,0.3278,0.2831,0.3893,14,0.0911
