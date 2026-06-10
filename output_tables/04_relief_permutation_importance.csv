@@ -1,0 +1,17 @@
+feature,permutation_importance_mean,permutation_importance_std
+Sub-issue,0.017685,0.000731
+Issue,0.017319,0.000896
+Product,0.01404,0.003133
+received_days_since_start,0.01295,0.002409
+Sub-product,0.011856,0.001851
+received_year,0.010412,0.001771
+narrative_word_count,0.008246,0.001445
+narrative_char_count,0.007531,0.001771
+State,0.005018,0.002387
+zip3,0.00358,0.001131
+Submitted via,0.003215,0.002088
+received_month,0.0025,0.000875
+received_dayofweek,0.000716,0.000877
+received_quarter,0.000691,0.000873
+received_day,0.000376,0.002088
+narrative_present,-0.00144,0.00134
