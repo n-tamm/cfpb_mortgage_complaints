@@ -12,3 +12,4 @@ pyarrow
 requests
 scikit-learn
 seaborn
+vaderSentiment
