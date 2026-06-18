@@ -231,3 +231,11 @@ data/processed/*
 # Python
 __pycache__/
 *.pyc
+
+# Saved models
+notebooks/*.pkl
+notebooks/*.joblib
+
+# Virtual Env
+.venv312/
+.venv/
