@@ -1,0 +1,3 @@
+setting,accuracy,precision,recall,f1,balanced_accuracy,average_precision
+default_0.50,0.7816,0.375,0.5839,0.4567,0.7012,0.4088
+best_f1_0.481,0.7709,0.3647,0.616,0.4581,0.7079,0.4088

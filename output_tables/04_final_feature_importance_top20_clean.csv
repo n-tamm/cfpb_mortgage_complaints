@@ -1,0 +1,21 @@
+feature,importance,feature_group
+num__narrative_word_count,0.076721,narrative
+num__narrative_char_count,0.076103,narrative
+num__narrative_sentiment_score,0.065683,narrative
+"cat__Company_BANK OF AMERICA, NATIONAL ASSOCIATION",0.05542,Company
+num__received_day,0.052654,received
+num__received_year,0.047276,received
+num__received_month,0.03939,received
+num__received_dayofweek,0.034779,received
+cat__Product_Mortgage,0.026549,Product
+cat__Issue_Problem with a purchase shown on your statement,0.025721,Issue
+cat__Issue_Fees or interest,0.024019,Issue
+cat__Issue_Getting a credit card,0.021359,Issue
+num__received_quarter,0.020898,received
+cat__Sub-issue_Problem with fees,0.016848,Sub-issue
+cat__Sub-issue_Credit card company isn't resolving a dispute about a purchase on your statement,0.014599,Sub-issue
+"cat__Company_CITIBANK, N.A.",0.013314,Company
+cat__Sub-product_Conventional home mortgage,0.012658,Sub-product
+cat__Company___OTHER__,0.010702,Company
+cat__Sub-issue_Company closed your account,0.010685,Sub-issue
+"cat__Company_Bread Financial Holdings, Inc.",0.009373,Company
