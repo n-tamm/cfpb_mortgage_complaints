@@ -1,82 +1,90 @@
 # cfpb_consumer_banking_complaints
 
-This repository contains our SIADS 696 Milestone II project on CFPB consumer banking complaints. The work combines structured complaint data, lightweight narrative features, supervised modeling, and evaluation focused on whether a complaint ultimately receives relief.
+This repository contains our SIADS 696 Milestone II project on CFPB consumer banking complaints. The current project setup is notebook-driven and the active workflow lives in the [notebooks](notebooks/) folder.
 
 ## Project Focus
 
-The current end-to-end modeling path is centered on a binary relief target derived from `Company response to consumer`.
+The main modeling task is a binary classification problem based on `Company response to consumer`.
 
 - Positive class: `Closed with monetary relief`
-- Negative class: all other retained response outcomes in the final relief dataset
+- Negative class: other retained outcomes in the filtered relief dataset
 
-The repo also includes older notebook branches for earlier timely-response and broader relief experiments, but the `final` notebooks are the main deliverables for the current project direction.
+The active workflow now combines:
+
+- structured complaint features
+- cleaned complaint narratives
+- unsupervised narrative features
+- precomputed VADER sentiment
+- supervised development and evaluation notebooks for the final relief task
 
 ## Repository Layout
 
-- [notebooks](notebooks/): active analysis, feature preparation, model development, and evaluation notebooks
-- [old_notebooks](old_notebooks/): archived notebook variants from earlier modeling directions
-- [data/raw](data/raw/): source extracts and raw complaint files
-- [data/processed](data/processed/): cleaned parquet files and model-ready datasets
-- [visuals](visuals/): charts exported from evaluation notebooks
-- [output_tables](output_tables/): small CSV outputs such as model comparison tables, ablation results, and failure examples
-- [sample_data](sample_data/): lightweight sample extracts that are safe to keep in Git for quick inspection
+- [notebooks](notebooks/): active project workflow and deliverables
+- [old_notebooks](old_notebooks/): archived earlier notebook versions
+- [data/raw](data/raw/): raw complaint extracts
+- [data/processed](data/processed/): parquet outputs and saved modeling artifacts
+- [output_tables](output_tables/): exported comparison tables and evaluation summaries
+- [visuals](visuals/): exported plots from evaluation notebooks
+- [sample_data](sample_data/): small Git-friendly samples for inspection
 
-## Notebook Guide
+## Current Notebook Guide
 
-The notebooks are designed to follow a fairly natural project flow from raw extraction through final evaluation.
+### 1. Data Extraction and Exploration
 
-### Data Preparation and Exploration
+- [00_data_extraction.ipynb](notebooks/00_data_extraction.ipynb): filters the CFPB complaint data down to the project scope and writes `consumer_banking_complaints.parquet`, `consumer_banking_monetary_complaints.parquet`, and `consumer_banking_relief.parquet`
+- [01_data_exploration.ipynb](notebooks/01_data_exploration.ipynb): general exploration of the complaint data, response outcomes, and project scope
+- [01a_data_exploration_narratives.ipynb](notebooks/01a_data_exploration_narratives.ipynb): exploration focused on narrative availability and text coverage
 
-- [00_data_extraction.ipynb](notebooks/00_data_extraction.ipynb): builds the working complaint extracts from the raw CFPB data and writes project-specific parquet outputs
-- [01_data_exploration.ipynb](notebooks/01_data_exploration.ipynb): structured data exploration, target inspection, and early data quality review
-- [01a_data_exploration_narratives.ipynb](notebooks/01a_data_exploration_narratives.ipynb): narrative-focused exploration for missingness, text coverage, and qualitative review
-- [02_narratives_cleaning.ipynb](notebooks/02_narratives_cleaning.ipynb): cleans complaint narratives and writes reusable text fields for downstream modeling
-- [02b_narrative_sentiment.ipynb](notebooks/02b_narrative_sentiment.ipynb): runs VADER once on the cleaned narratives and writes sentiment-enriched parquet files so development and evaluation notebooks do not need to recompute sentiment every run
+### 2. Narrative Preparation
 
-### Final Modeling Path
+- [02_narratives_cleaning.ipynb](notebooks/02_narratives_cleaning.ipynb): cleans complaint narratives and writes `data/processed/cleaned_complaints.parquet`
+- [02b_narrative_sentiment.ipynb](notebooks/02b_narrative_sentiment.ipynb): computes VADER sentiment on the cleaned complaints data and writes `data/processed/cleaned_complaints_vader.parquet` and `data/processed/consumer_banking_relief_vader.parquet`
 
-- [03_supervised_model_development_final.ipynb](notebooks/03_supervised_model_development_final.ipynb): main structured-feature supervised model development notebook for the final binary relief task
-- [04_supervised_model_evaluation_final.ipynb](notebooks/04_supervised_model_evaluation_final.ipynb): evaluation notebook for the selected final model, including threshold analysis, learning-curve analysis, ablations, and failure analysis
+### 3. Unsupervised Narrative Feature Pipeline
 
-### Narrative-Focused Final Path
+- [05_unsupervised_feature_engineering.ipynb](notebooks/05_unsupervised_feature_engineering.ipynb): creates processed narrative text and writes `data/processed/processed_narratives.parquet`
+- [06a_unsupervised_model_development_kmeans.ipynb](notebooks/06a_unsupervised_model_development_kmeans.ipynb): develops K-means narrative clusters and writes `data/processed/clustered_narratives.parquet`
+- [06b_unsupervised_model_development_lda.ipynb](notebooks/06b_unsupervised_model_development_lda.ipynb): develops LDA topic features and writes `data/processed/lda_features.parquet`
+- [07_unsupervised_join_features.ipynb](notebooks/07_unsupervised_join_features.ipynb): joins the unsupervised narrative features into `data/processed/final_unsupervised_features.parquet`
+- [02c_narrative_sentiment_final_narrative.ipynb](notebooks/02c_narrative_sentiment_final_narrative.ipynb): adds VADER sentiment to the final unsupervised feature set and writes `data/processed/final_unsupervised_features_vader.parquet` and `data/processed/final_unsupervised_features_relief_vader.parquet`
 
-- [03_supervised_model_development_final_narrative.ipynb](notebooks/03_supervised_model_development_final_narrative.ipynb): development notebook for the narrative-present subset, keeping the modeling path separate when text coverage matters
-- [04_supervised_model_evaluation_final_narrative.ipynb](notebooks/04_supervised_model_evaluation_final_narrative.ipynb): evaluation notebook for the narrative-focused final model
+### 4. Supervised Modeling and Evaluation
 
-## Data Notes
-
-The primary final modeling dataset is:
-
-- [consumer_banking_relief_vader.parquet](data/processed/consumer_banking_relief_vader.parquet)
-
-This file is the cleaned, model-ready relief dataset with a precomputed VADER sentiment score. At the time of writing, it contains about `1.12M` rows and `20` columns.
-
-Key fields include:
-
-- complaint dates such as `Date received` and `Date sent to company`
-- structured complaint descriptors such as `Product`, `Sub-product`, `Issue`, and `Sub-issue`
-- company and submission context such as `Company` and `Submitted via`
-- narrative fields including `Consumer complaint narrative`, `cleaned_consumer_narrative`, and `narrative_sentiment_score`
-- outcome fields such as `Company response to consumer` and `Timely response?`
-- the record identifier `Complaint ID`
-
-Important modeling note:
-
-- `narrative_sentiment_score` is now precomputed upstream so the final development and evaluation notebooks can load it directly instead of recalculating sentiment during every training run
+- [03a_supervised_baselines.ipynb](notebooks/03a_supervised_baselines.ipynb): builds simple baseline classifiers for the final relief task and writes `output_tables/03a_supervised_baseline_results.csv`
+- [03_supervised_model_development_final_clean.ipynb](notebooks/03_supervised_model_development_final_clean.ipynb): main supervised development notebook for the final all-records relief model using `data/processed/final_unsupervised_features_relief_vader.parquet`
+- [04_supervised_model_evaluation_final_clean.ipynb](notebooks/04_supervised_model_evaluation_final_clean.ipynb): evaluates the main final relief model and exports the `04_final_*_clean` tables and visuals
+- [03_supervised_model_development_final_narrative.ipynb](notebooks/03_supervised_model_development_final_narrative.ipynb): supervised development notebook for the narrative-present subset where `narrative_present == 1`
+- [04_supervised_model_evaluation_final_narrative.ipynb](notebooks/04_supervised_model_evaluation_final_narrative.ipynb): evaluates the narrative-only final model and exports the `04_final_narrative_*` tables and visuals
 
 ## Recommended Run Order
 
-For a clean rerun of the final project path, this is the intended order:
+For a clean end-to-end rerun of the current project setup:
 
 1. [00_data_extraction.ipynb](notebooks/00_data_extraction.ipynb)
 2. [01_data_exploration.ipynb](notebooks/01_data_exploration.ipynb)
 3. [01a_data_exploration_narratives.ipynb](notebooks/01a_data_exploration_narratives.ipynb)
 4. [02_narratives_cleaning.ipynb](notebooks/02_narratives_cleaning.ipynb)
 5. [02b_narrative_sentiment.ipynb](notebooks/02b_narrative_sentiment.ipynb)
-6. [03_supervised_model_development_final.ipynb](notebooks/03_supervised_model_development_final.ipynb)
-7. [04_supervised_model_evaluation_final.ipynb](notebooks/04_supervised_model_evaluation_final.ipynb)
+6. [05_unsupervised_feature_engineering.ipynb](notebooks/05_unsupervised_feature_engineering.ipynb)
+7. [06a_unsupervised_model_development_kmeans.ipynb](notebooks/06a_unsupervised_model_development_kmeans.ipynb)
+8. [06b_unsupervised_model_development_lda.ipynb](notebooks/06b_unsupervised_model_development_lda.ipynb)
+9. [07_unsupervised_join_features.ipynb](notebooks/07_unsupervised_join_features.ipynb)
+10. [02c_narrative_sentiment_final_narrative.ipynb](notebooks/02c_narrative_sentiment_final_narrative.ipynb)
+11. [03a_supervised_baselines.ipynb](notebooks/03a_supervised_baselines.ipynb)
+12. [03_supervised_model_development_final_clean.ipynb](notebooks/03_supervised_model_development_final_clean.ipynb)
+13. [04_supervised_model_evaluation_final_clean.ipynb](notebooks/04_supervised_model_evaluation_final_clean.ipynb)
+14. [03_supervised_model_development_final_narrative.ipynb](notebooks/03_supervised_model_development_final_narrative.ipynb)
+15. [04_supervised_model_evaluation_final_narrative.ipynb](notebooks/04_supervised_model_evaluation_final_narrative.ipynb)
 
-If you want to compare the narrative-only path, run the two `final_narrative` notebooks after the sentiment-precompute step.
+If you only want the main supervised path, the minimum downstream chain is `00 -> 02 -> 05 -> 06a -> 06b -> 07 -> 02c -> 03a -> 03_supervised_model_development_final_clean -> 04_supervised_model_evaluation_final_clean`.
+
+## Key Active Datasets
+
+- `data/processed/consumer_banking_complaints.parquet`: filtered project-scope complaint data
+- `data/processed/cleaned_complaints.parquet`: structured complaint data with cleaned narratives
+- `data/processed/consumer_banking_relief_vader.parquet`: earlier relief dataset with sentiment
+- `data/processed/final_unsupervised_features.parquet`: combined structured and unsupervised narrative features
+- `data/processed/final_unsupervised_features_relief_vader.parquet`: current main modeling dataset for the supervised final notebooks
 
 ## Setup
 
@@ -86,4 +94,22 @@ Install dependencies with:
 pip install -r requirements.txt
 ```
 
-The current environment includes the core packages needed for data prep, notebook work, supervised modeling, class imbalance handling, and exported sentiment scoring.
+The current `requirements.txt` includes the notebook, data, modeling, and sentiment packages used by the workflow:
+
+- `duckdb`
+- `imbalanced-learn`
+- `ipykernel`
+- `ipython`
+- `joblib`
+- `jupyterlab`
+- `matplotlib`
+- `numpy`
+- `pandas`
+- `polars`
+- `pyarrow`
+- `requests`
+- `scikit-learn`
+- `seaborn`
+- `vaderSentiment`
+
+Then launch Jupyter and run the notebooks from the [notebooks](notebooks/) folder.

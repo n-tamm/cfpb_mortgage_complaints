@@ -1,10 +1,13 @@
+contractions
 duckdb
+gensim
 imbalanced-learn
 ipykernel
 ipython
 joblib
 jupyterlab
 matplotlib
+nltk
 numpy
 pandas
 polars
@@ -12,4 +15,5 @@ pyarrow
 requests
 scikit-learn
 seaborn
+umap-learn
 vaderSentiment
