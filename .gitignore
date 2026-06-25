@@ -237,9 +237,7 @@ notebooks/*.pkl
 notebooks/*.joblib
 
 # Local-only notebooks
-notebooks/lda_old.ipynb
-notebooks/narrative_eda_old.ipynb
-notebooks/LDA_no_stopwords.ipynb
+notebooks/old_notebooks/
 
 # Virtual Env
 .venv312/
