@@ -1,0 +1,16 @@
+feature,permutation_importance_mean,permutation_importance_std
+Company,0.114947,0.007591
+Issue,0.053039,0.008508
+Product,0.04046,0.010616
+Sub-issue,0.035599,0.008133
+received_year,0.029036,0.003297
+Sub-product,0.018815,0.00951
+narrative_word_count,0.011853,0.006261
+narrative_char_count,0.009363,0.005896
+Submitted via,0.007129,0.002554
+received_day,0.000575,0.003152
+received_month,0.000299,0.003278
+narrative_present,0.0,0.0
+received_dayofweek,-1e-05,0.002583
+narrative_sentiment_score,-0.000728,0.002812
+received_quarter,-0.002358,0.002025

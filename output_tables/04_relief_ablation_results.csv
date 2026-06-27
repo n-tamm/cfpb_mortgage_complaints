@@ -1,0 +1,6 @@
+ablation,cv_mean_f1,cv_mean_precision,cv_mean_recall,feature_count,f1_drop_vs_all_features
+no_geography,0.0724,0.5802,0.0386,14,-0.057
+all_features,0.0154,0.586,0.0078,16,0.0
+no_narrative,0.0096,0.5762,0.0048,13,0.0058
+no_product_context,0.0047,0.6315,0.0024,14,0.0107
+no_issue_context,0.0,0.0,0.0,14,0.0154

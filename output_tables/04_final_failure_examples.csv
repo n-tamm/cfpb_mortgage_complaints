@@ -1,0 +1,4 @@
+Complaint ID,Product,Sub-product,Issue,Sub-issue,Company,Submitted via,Consumer complaint narrative,target_relief,predicted_label,predicted_proba,error_type,narrative_present,narrative_word_count,failure_category
+5942971,Checking or savings account,Savings account,Managing an account,Deposits and withdrawals,WELLS FARGO & COMPANY,Referral,[No Narrative],1,0,0.49928772589187714,false_negative,True,2,likely systematic minority-class miss
+18808805,Credit card,Store credit card,Fees or interest,Problem with fees,"Bread Financial Holdings, Inc.",Web,[No Narrative],0,1,0.9172717106210848,false_positive,True,2,aggressive positive flag / ambiguous case
+4157464,Checking or savings account,Checking account,Managing an account,Funds not handled or disbursed as instructed,"CITIZENS FINANCIAL GROUP, INC.",Referral,[No Narrative],1,0,0.493562436967974,false_negative,True,2,sparse-information edge case

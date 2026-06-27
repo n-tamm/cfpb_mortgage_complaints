@@ -1,0 +1,21 @@
+feature,importance,feature_group
+cat__Product_Mortgage,0.058277,Product
+num__received_day,0.052131,received
+num__received_year,0.044389,received
+"cat__Company_BANK OF AMERICA, NATIONAL ASSOCIATION",0.041417,Company
+num__narrative_word_count,0.039267,narrative
+num__received_month,0.038656,received
+num__narrative_char_count,0.0386,narrative
+num__narrative_sentiment_score,0.037232,narrative
+num__received_dayofweek,0.033016,received
+cat__Issue_Problem with a purchase shown on your statement,0.022392,Issue
+num__received_quarter,0.021061,received
+cat__Sub-product_Conventional home mortgage,0.020331,Sub-product
+cat__Issue_Fees or interest,0.01971,Issue
+cat__Issue_Getting a credit card,0.018553,Issue
+cat__Issue_Struggling to pay mortgage,0.017479,Issue
+cat__Issue_Trouble during payment process,0.016691,Issue
+cat__Issue_Incorrect information on your report,0.013882,Issue
+"cat__Company_CITIBANK, N.A.",0.013528,Company
+cat__Sub-issue_Problem with fees,0.013363,Sub-issue
+cat__Sub-issue_Credit card company isn't resolving a dispute about a purchase on your statement,0.010721,Sub-issue
