@@ -1,9 +1,10 @@
 feature_group,importance
-Company,0.229055
-Issue,0.206359
-Sub-issue,0.204805
-narrative,0.142266
-received,0.107038
-Product,0.060162
-Sub-product,0.050315
+topic,0.52887
+Company,0.105329
+Issue,0.095435
+Sub-issue,0.07882
+narrative,0.067863
+received,0.06337
+Product,0.035812
+Sub-product,0.024501
 Submitted via,0.0

@@ -1,7 +1,7 @@
 ablation,cv_mean_f1,cv_mean_precision,cv_mean_recall,feature_count,f1_drop_vs_all_features
-no_narrative_size,0.4541,0.3604,0.6135,13,-0.003
-no_sentiment,0.4515,0.3654,0.5906,14,-0.0005
-all_features,0.451,0.3727,0.571,15,0.0
-no_product_context,0.4508,0.3703,0.576,13,0.0002
-no_issue_context,0.367,0.3476,0.3887,13,0.084
-no_company,0.3288,0.3422,0.3165,14,0.1222
+no_narrative_size,0.457,0.3633,0.6159,13,-0.0038
+all_features,0.4532,0.3739,0.5751,15,0.0
+no_sentiment,0.4531,0.3662,0.5942,14,0.0001
+no_product_context,0.4508,0.3701,0.5767,13,0.0023
+no_issue_context,0.3634,0.3435,0.3859,13,0.0898
+no_company,0.3287,0.3433,0.3153,14,0.1245
